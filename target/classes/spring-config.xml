@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+ 
+    <context:property-placeholder location="classpath:config.properties" />
+
+	<bean id="helloWorld" class="com.ais.presentation.HelloWorld">
+		<property name ="hello" value="Hola mundo!"></property>
+	</bean>
+
+	<bean id="helloWorldConst" class="com.ais.presentation.HelloWorld">
+		<constructor-arg index="0" value="Hola mundo from constructor!" type="java.lang.String"/>		
+	</bean>
+	
+	
+	<bean id="student" class="com.ais.entity.Student">		
+		<property name="idStudent" value="${Student.idStudent}"></property>
+		<property name="name" value="${Student.name}" ></property>
+		<property name="surname" value="${Student.surname}"></property>
+		<property name="age" value="${Student.age}"></property>
+		<property name="address">
+	        <ref bean="address"/>
+	    </property>
+	</bean>	
+	
+	
+	<!-- <bean id="studentConst" class="com.ais.entity.Student">		
+		<constructor-arg index="0" value="${Student.idStudent}" type="java.lang.Integer"/>
+		<constructor-arg index="1" value="${Student.name}" type="java.lang.String"/>
+		<constructor-arg index="2" value="${Student.surname}" type="java.lang.String"/>
+		<constructor-arg index="3" value="${Student.age}" type="java.lang.Integer"/>
+		<constructor-arg index="4" type="com.ais.entity.Address">
+            <ref bean="addressConst" />
+        </constructor-arg>
+	</bean> -->
+
+	<bean id="address" class="com.ais.entity.Address">
+		<constructor-arg index="0" value="${Address.idAddress}"/>
+		<constructor-arg index="1" value="${Address.street}" type="java.lang.String"/>
+	</bean>
+	
+
+</beans>
+
+
