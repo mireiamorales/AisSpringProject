@@ -10,10 +10,10 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException {
 				
-		AbstractApplicationContext context= new ClassPathXmlApplicationContext("spring-config.xml");
+		AbstractApplicationContext context= 
+				new ClassPathXmlApplicationContext("spring-config.xml");
 
-		Student estudiante = (Student)context.getBean("student");
-		
+		Student estudiante = (Student)context.getBean("student");		
 		
 		System.out.println(estudiante.getIdStudent());
 		System.out.println(estudiante.getName());
@@ -23,8 +23,7 @@ public class Principal {
 		Address direccionEstudiante = estudiante.getAddress();
 		
 		System.out.println(direccionEstudiante.getIdAddress());
-		System.out.println(direccionEstudiante.getStreet());
-		
+		System.out.println(direccionEstudiante.getStreet());		
 		
 		Address direccion = (Address)context.getBean("address");
 		
