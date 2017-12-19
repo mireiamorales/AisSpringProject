@@ -29,16 +29,19 @@
 	</bean>	
 	
 	
-	<!-- <bean id="studentConst" class="com.ais.entity.Student">		
-		<constructor-arg index="0" value="${Student.idStudent}" type="java.lang.Integer"/>
+	<bean id="studentConst" class="com.ais.entity.Student">		
+		<constructor-arg index="0" value="${Student.idStudent}" type="int"/>
 		<constructor-arg index="1" value="${Student.name}" type="java.lang.String"/>
 		<constructor-arg index="2" value="${Student.surname}" type="java.lang.String"/>
 		<constructor-arg index="3" value="${Student.age}" type="java.lang.Integer"/>
-		<constructor-arg index="4" type="com.ais.entity.Address">
-            <ref bean="addressConst" />
-        </constructor-arg>
-	</bean> -->
+        <constructor-arg index="4" ref = "addressConst"/>
+	</bean> 
 
+    <bean id="addressConst" class="com.ais.entity.Address">
+		<constructor-arg index="0" value="${Address.idAddress}"/>
+		<constructor-arg index="1" value="${Address.street}" type="java.lang.String"/>
+	</bean>
+	
 	<bean id="address" class="com.ais.entity.Address">
 		<constructor-arg index="0" value="${Address.idAddress}"/>
 		<constructor-arg index="1" value="${Address.street}" type="java.lang.String"/>

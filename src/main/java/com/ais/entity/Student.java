@@ -5,7 +5,7 @@ public class Student {
 	private int idStudent;
 	private String name;
 	private String surname;
-	private int age;
+	private Integer age;
 	
 	public int getIdStudent() {
 		return idStudent;
@@ -28,7 +28,7 @@ public class Student {
 	public int getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public Address getAddress() {
@@ -40,7 +40,7 @@ public class Student {
 	private Address address;
 	
 
-	public Student(int idStudent, String name, String surname, int age, Address address) {
+	public Student(int idStudent, String name, String surname, Integer age, Address address) {
 		super();
 		this.idStudent = idStudent;
 		this.name = name;
