@@ -10,8 +10,7 @@ public class Principal {
 
 	public static void main(String[] args) throws IOException {
 				
-		AbstractApplicationContext context= 
-				new ClassPathXmlApplicationContext("spring-config.xml");
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
 
 		Student estudiante = (Student)context.getBean("student");		
 		
