@@ -5,8 +5,13 @@ public class Student {
 	private int idStudent;
 	private String name;
 	private String surname;
+<<<<<<< HEAD
 	private Integer age;
 	
+=======
+	private int age;
+		
+>>>>>>> 460643ad0904fef4e4fe85fc5c71b301d22f28c8
 	public int getIdStudent() {
 		return idStudent;
 	}
