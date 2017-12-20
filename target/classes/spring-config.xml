@@ -26,10 +26,9 @@
 		<property name="address">
 	        <ref bean="address"/>
 	    </property>
-	</bean>	
+	</bean>		
 	
-	
-	 <bean id="studentConst" class="com.ais.entity.Student">		
+	<bean id="studentConst" class="com.ais.entity.Student">		
 		<constructor-arg index="0" value="${Student.idStudent}" type="int"/>
 		<constructor-arg index="1" value="${Student.name}" type="java.lang.String"/>
 		<constructor-arg index="2" value="${Student.surname}" type="java.lang.String"/>
