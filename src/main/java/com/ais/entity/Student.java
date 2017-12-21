@@ -6,6 +6,7 @@ public class Student {
 	private String name;
 	private String surname;
 	private Integer age;
+	private Address address;
 	
 	public int getIdStudent() {
 		return idStudent;
@@ -36,9 +37,7 @@ public class Student {
 	}
 	public void setAddress(Address address) {
 		this.address = address;
-	}
-	private Address address;
-	
+	}	
 
 	public Student(int idStudent, String name, String surname, Integer age, Address address) {
 		super();

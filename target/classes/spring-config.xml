@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
     xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     http://www.springframework.org/schema/context
-    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
- 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+  
     <context:property-placeholder location="classpath:config.properties" />
 
 	<bean id="helloWorld" class="com.ais.presentation.HelloWorld">
@@ -48,6 +51,28 @@
 		<constructor-arg index="1" value="${Address.street}" type="java.lang.String"/>
 	</bean>
 	
+	<bean id="builder" class="com.ais.builderexample.Employee$EmployeeBuilder">
+		<constructor-arg value="1"/>
+		<constructor-arg value="Shamik Mikra"/>
+		<property name="gender" value="1"/>
+		<property name="hobby" value="Blogging"/>
+		<property name="address" value="Calle Indutru"/>
+	</bean>
+
+<bean id="employee" class="com.ais.builderexample.Employee" factory-bean="builder" factory-method="build"/>
+
+<bean id="compra" class="com.ais.aspectos.Comprar"/>
+
+<bean id="validarCompra" class="com.ais.aspectos.ValidarMaterial"/>
+
+<aop:config>
+	<aop:aspect ref="validarCompra">
+		<aop:pointcut expression="execution( * com.ais.aspectos.Comprar.compra(..) )" id = "compraPointCut"/>
+		<aop:before pointcut-ref="compraPointCut" method = "comprobarCantidad"/>
+		<aop:after-throwing pointcut-ref="compraPointCut" method = "ponerReclamacion"/>
+		<aop:after-returning pointcut-ref="compraPointCut" method = "empaquetar"/>
+	</aop:aspect>
+</aop:config>
 
 </beans>
 
